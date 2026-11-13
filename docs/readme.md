@@ -16,7 +16,7 @@ make sure the usb is plugged in and the wifi is also connected at the same time
 
 because of that it will be able to help with the input lag which you will face if the usb cable is disconnected 
 
-##what is needed to run it 
+## what is needed to run it 
 
 Ensure [ViGEmBus] is installed on your PC. or just copy this in your browser (https://github.com/nefarius/ViGEmBus/releases)
 
