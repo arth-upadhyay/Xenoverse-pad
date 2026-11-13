@@ -1,0 +1,124 @@
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+._*
+
+# ---------- Temporary and swap files ----------
+*.swp
+*.swo
+*.tmp
+*~
+
+
+*.log
+hs_err_pid*
+replay_pid*
+
+*.env
+.env
+.env.*
+local.properties
+project_context.txt
+
+# Visual Studio / Rider hidden folders
+.vs/
+.vscode/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+build/
+bld/
+
+# Visual Studio / Rider user files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.DotSettings.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.VC.db
+*.VC.VC.opendb
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results / coverage
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Publish output
+[Pp]ublish/
+[Pp]ublishOutput/
+*.publishproj
+PublishScripts/
+
+# ============================================================
+# Android / Kotlin — AndroidApp
+# ============================================================
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Kotlin
+.kotlin/
+
+# Android build artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Signing 
+*.jks
+*.keystore
+!debug.keystore
+
+*.so
+
+.vscode/
+*.code-workspace
+
+# Local history
+.history/
+

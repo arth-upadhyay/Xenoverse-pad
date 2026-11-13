@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="800dp"
+    android:height="360dp"
+    android:viewportWidth="800"
+    android:viewportHeight="360">
+
+    <!-- Deep ambient carbon backdrop -->
+    <path android:pathData="M0,0h800v360h-800z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="400"
+                android:startY="0"
+                android:endX="400"
+                android:endY="360"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#0D0D0F" />
+                <item android:offset="0.5" android:color="#141417" />
+                <item android:offset="1.0" android:color="#09090B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer drop shadow of Xbox Series X chassis -->
+    <path
+        android:fillColor="#AA000000"
+        android:pathData="M140,26 C210,12 290,18 400,18 C510,18 590,12 660,26 C735,42 784,105 788,195 C792,282 758,348 696,352 C636,356 592,310 545,288 C498,266 450,262 400,262 C350,262 302,266 255,288 C208,310 164,356 104,352 C42,348 8,282 12,195 C16,105 65,42 140,26 Z" />
+
+    <!-- Main Xbox Series X Controller Chassis Body (#2C2C2C to #1A1A1A) -->
+    <path android:pathData="M142,20 C212,6 292,12 400,12 C508,12 588,6 658,20 C732,36 780,98 784,188 C788,274 754,340 694,344 C635,348 592,302 545,280 C498,258 450,254 400,254 C350,254 302,258 255,280 C208,302 165,348 106,344 C46,340 12,274 16,188 C20,98 68,36 142,20 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="400"
+                android:startY="10"
+                android:endX="400"
+                android:endY="345"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#2E2E32" />
+                <item android:offset="0.35" android:color="#242428" />
+                <item android:offset="0.75" android:color="#1C1C1F" />
+                <item android:offset="1.0" android:color="#141416" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Subtle top metallic rim bevel highlight -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="2.2"
+        android:strokeColor="#44FFFFFF"
+        android:pathData="M142,20 C212,6 292,12 400,12 C508,12 588,6 658,20 C732,36 780,98 784,188" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="2.2"
+        android:strokeColor="#44FFFFFF"
+        android:pathData="M16,188 C20,98 68,36 142,20" />
+
+    <!-- Outer chassis contour stroke -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="1.5"
+        android:strokeColor="#38383E"
+        android:pathData="M142,20 C212,6 292,12 400,12 C508,12 588,6 658,20 C732,36 780,98 784,188 C788,274 754,340 694,344 C635,348 592,302 545,280 C498,258 450,254 400,254 C350,254 302,258 255,280 C208,302 165,348 106,344 C46,340 12,274 16,188 C20,98 68,36 142,20 Z" />
+
+    <!-- Left & Right Ergonomic Textured Grip Panels -->
+    <path
+        android:fillColor="#17171A"
+        android:strokeColor="#29292E"
+        android:strokeWidth="1"
+        android:pathData="M22,165 C26,110 56,64 102,44 C82,96 76,168 92,238 C104,290 128,325 148,338 C132,343 118,345 106,344 C48,340 16,274 22,165 Z" />
+    <path
+        android:fillColor="#17171A"
+        android:strokeColor="#29292E"
+        android:strokeWidth="1"
+        android:pathData="M778,165 C774,110 744,64 698,44 C718,96 724,168 708,238 C696,290 672,325 652,338 C668,343 682,345 694,344 C752,340 784,274 778,165 Z" />
+
+    <!-- Center Xbox Bridge / Faceplate Seam Lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#2E2E34"
+        android:strokeWidth="1.5"
+        android:pathData="M250,18 C275,95 285,175 262,276" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#2E2E34"
+        android:strokeWidth="1.5"
+        android:pathData="M550,18 C525,95 515,175 538,276" />
+
+    <!-- Top Center Sculpted Crown Arch -->
+    <path
+        android:fillColor="#202024"
+        android:strokeColor="#34343B"
+        android:strokeWidth="1.2"
+        android:pathData="M268,14 C312,11 356,12 400,12 C444,12 488,11 532,14 L518,68 C478,62 438,60 400,60 C362,60 322,62 282,68 Z" />
+</vector>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#080808" />
+                    <stroke android:width="2dp" android:color="#22C55E" />
+                </shape>
+            </item>
+            <item android:inset="3dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#0D640D"
+                        android:endColor="#084208"
+                        android:type="linear" />
+                    <stroke android:width="1.5dp" android:color="#88FFFFFF" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Default 3D glossy state: A = Green (#107C10) -->
+    <item>
+        <layer-list>
+            <!-- Outer recessed shadow socket -->
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#0A0A0C" />
+                    <stroke android:width="1.5dp" android:color="#2A2A30" />
+                </shape>
+            </item>
+            <!-- Main 3D button sphere -->
+            <item android:inset="3dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="315"
+                        android:startColor="#18A818"
+                        android:centerColor="#107C10"
+                        android:endColor="#094D09"
+                        android:type="linear" />
+                    <stroke android:width="1.5dp" android:color="#55FFFFFF" />
+                </shape>
+            </item>
+            <!-- Top glass dome highlight -->
+            <item
+                android:top="5dp"
+                android:bottom="24dp"
+                android:left="10dp"
+                android:right="10dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#44FFFFFF"
+                        android:endColor="#00FFFFFF"
+                        android:type="linear" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

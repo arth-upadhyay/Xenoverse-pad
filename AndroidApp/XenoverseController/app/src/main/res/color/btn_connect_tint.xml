@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Connect button tint: Xbox Green default, darker green on press, Xbox Red for disconnect (set via Kotlin) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="#0B5C0B" />
+    <item android:color="#107C10" />
+</selector>

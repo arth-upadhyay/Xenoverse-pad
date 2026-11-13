@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportWidth="140"
+    android:viewportHeight="140">
+
+    <!-- Outer recessed well shadow -->
+    <path
+        android:fillColor="#0B0B0D"
+        android:strokeColor="#2A2A30"
+        android:strokeWidth="1.5"
+        android:pathData="M70,4 A66,66 0 1,1 69.9,4 Z" />
+
+    <!-- Faceted Xbox Series X hybrid octagonal dish -->
+    <path android:pathData="M70,9 L113,27 L131,70 L113,113 L70,131 L27,113 L9,70 L27,27 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="20"
+                android:startY="20"
+                android:endX="120"
+                android:endY="120"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#222227" />
+                <item android:offset="0.5" android:color="#161619" />
+                <item android:offset="1.0" android:color="#0F0F12" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Diagonal facet lines inside dish -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#26262C"
+        android:strokeWidth="1"
+        android:pathData="M27,27 L113,113 M113,27 L27,113" />
+
+    <!-- Continuous single-piece metallic cross / plus drop shadow -->
+    <path
+        android:fillColor="#070709"
+        android:pathData="M52,13 L88,13 C90,13 92,15 92,17 L92,48 L123,48 C125,48 127,50 127,52 L127,88 C127,90 125,92 123,92 L92,92 L92,123 C92,125 90,127 88,127 L52,127 C50,127 48,125 48,123 L48,92 L17,92 C15,92 13,90 13,88 L13,52 C13,50 15,48 17,48 L48,48 L48,17 C48,15 50,13 52,13 Z" />
+
+    <!-- Continuous single-piece metallic cross / plus body -->
+    <path android:pathData="M53,15 L87,15 C89,15 90,16 90,18 L90,50 L122,50 C124,50 125,51 125,53 L125,87 C125,89 124,90 122,90 L90,90 L90,122 C90,124 89,125 87,125 L53,125 C51,125 50,124 50,122 L50,90 L18,90 C16,90 15,89 15,87 L15,53 C15,51 16,50 18,50 L50,50 L50,18 C50,16 51,15 53,15 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="25"
+                android:startY="15"
+                android:endX="115"
+                android:endY="125"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#3A3A42" />
+                <item android:offset="0.45" android:color="#28282E" />
+                <item android:offset="1.0" android:color="#19191D" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Metallic bevel border on the continuous cross -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#50505A"
+        android:strokeWidth="1.4"
+        android:pathData="M53,15 L87,15 C89,15 90,16 90,18 L90,50 L122,50 C124,50 125,51 125,53 L125,87 C125,89 124,90 122,90 L90,90 L90,122 C90,124 89,125 87,125 L53,125 C51,125 50,124 50,122 L50,90 L18,90 C16,90 15,89 15,87 L15,53 C15,51 16,50 18,50 L50,50 L50,18 C50,16 51,15 53,15 Z" />
+
+    <!-- Recessed center thumb pivot dish -->
+    <path
+        android:fillColor="#1B1B20"
+        android:strokeColor="#2E2E36"
+        android:strokeWidth="1"
+        android:pathData="M70,54 A16,16 0 1,1 69.9,54 Z" />
+</vector>

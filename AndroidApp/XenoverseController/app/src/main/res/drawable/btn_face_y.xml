@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#080808" />
+                    <stroke android:width="2dp" android:color="#FFE066" />
+                </shape>
+            </item>
+            <item android:inset="3dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#CC9200"
+                        android:endColor="#996D00"
+                        android:type="linear" />
+                    <stroke android:width="1.5dp" android:color="#99FFFFFF" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Default 3D glossy state: Y = Yellow (#FFB900) -->
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#0A0A0C" />
+                    <stroke android:width="1.5dp" android:color="#2A2A30" />
+                </shape>
+            </item>
+            <item android:inset="3dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="315"
+                        android:startColor="#FFD43B"
+                        android:centerColor="#FFB900"
+                        android:endColor="#B88200"
+                        android:type="linear" />
+                    <stroke android:width="1.5dp" android:color="#66FFFFFF" />
+                </shape>
+            </item>
+            <item
+                android:top="5dp"
+                android:bottom="24dp"
+                android:left="10dp"
+                android:right="10dp">
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#4DFFFFFF"
+                        android:endColor="#00FFFFFF"
+                        android:type="linear" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_xbox_chassis"
+    android:splitMotionEvents="true"
+    tools:context=".MainActivity">
+
+    <!-- ════════════════════ GUIDELINES ════════════════════ -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gTopBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="52dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gLeftEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gRightStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.64" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gMidH"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <!-- ════════════════════ TOP-CENTER TOUCHPAD & USB PORT CONNECTION INDICATOR ════════════════════ -->
+
+    <!-- Animated USB / Wi-Fi Icon at the top-center USB-C port crown -->
+    <ImageView
+        android:id="@+id/imgConnectionStatus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_wifi"
+        android:tint="#E81123"
+        android:clickable="false"
+        android:focusable="false"
+        android:contentDescription="Connection Status Icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Animated Connection Status Label right below the icon -->
+    <TextView
+        android:id="@+id/tvConnectionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="DISCONNECTED"
+        android:textColor="#E81123"
+        android:textSize="8.5sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintTop_toBottomOf="@id/imgConnectionStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Transparent Top-Center Touchpad spanning between LB and RB above the Guide button -->
+    <View
+        android:id="@+id/viewTouchpad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnXboxLogo"
+        app:layout_constraintStart_toEndOf="@id/btnLB"
+        app:layout_constraintEnd_toStartOf="@id/btnRB" />
+
+    <!-- Legacy status views kept hidden for ID compatibility -->
+    <View
+        android:id="@+id/statusDot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ════════════════════ TOP CORNERS — ERGONOMIC CLAW TRIGGERS (OUTER) & BUMPERS (INNER) ════════════════════ -->
+    <!-- Putting LT and RT on the outer top corners (where left/right index fingers rest) and LB/RB inward
+         keeps RT far away from the Y button so you can easily hold RT with your index finger while pressing Y/X/A/B with your thumb! -->
+
+    <!-- LT (Far Top-Left Outer Corner for Left Index Finger) -->
+    <com.xenoversepad.controller.TriggerView
+        android:id="@+id/triggerLT"
+        android:layout_width="76dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- LB (Next to LT along Top-Left Shoulder) -->
+    <Button
+        android:id="@+id/btnLB"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_bumper_lb"
+        app:backgroundTint="@null"
+        android:padding="0dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="LB"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintStart_toEndOf="@id/triggerLT"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- RB (Inward along Top-Right Shoulder) -->
+    <Button
+        android:id="@+id/btnRB"
+        android:layout_width="88dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_bumper_rb"
+        app:backgroundTint="@null"
+        android:padding="0dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="RB"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintEnd_toStartOf="@id/triggerRT"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- RT (Far Top-Right Outer Corner for Right Index Finger — well separated from Y!) -->
+    <com.xenoversepad.controller.TriggerView
+        android:id="@+id/triggerRT"
+        android:layout_width="76dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ════════════════════ CENTER XBOX GUIDE, VIEW, MENU & CONNECTION CONSOLE ════════════════════ -->
+
+    <!-- Glowing White Xbox Guide Button (ID: btnXboxLogo, centered in controller body) -->
+    <ImageButton
+        android:id="@+id/btnXboxLogo"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_xbox_guide"
+        android:contentDescription="Xbox Guide Button"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/tvConnectionText"
+        app:layout_constraintBottom_toTopOf="@id/centerHudPanel"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintStart_toStartOf="@id/gLeftEnd"
+        app:layout_constraintEnd_toEndOf="@id/gRightStart" />
+
+    <!-- View Button (formerly Back — overlapping squares icon) -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_center_circle"
+        app:backgroundTint="@null"
+        android:padding="0dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="⧉"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#E2E2EA"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintEnd_toStartOf="@id/btnXboxLogo"
+        app:layout_constraintTop_toTopOf="@id/btnXboxLogo"
+        app:layout_constraintBottom_toBottomOf="@id/btnXboxLogo" />
+
+    <!-- Menu Button (formerly Start — three horizontal lines icon) -->
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/btn_center_circle"
+        app:backgroundTint="@null"
+        android:padding="0dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="☰"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#E2E2EA"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:layout_constraintStart_toEndOf="@id/btnXboxLogo"
+        app:layout_constraintTop_toTopOf="@id/btnXboxLogo"
+        app:layout_constraintBottom_toBottomOf="@id/btnXboxLogo" />
+
+    <!-- Sleek Recessed Carbon Center Console (IP + Connect + Profile, centered in middle) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/centerHudPanel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:background="@drawable/bg_center_console"
+        app:layout_constraintTop_toBottomOf="@id/btnXboxLogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/gLeftEnd"
+        app:layout_constraintEnd_toEndOf="@id/gRightStart">
+
+        <!-- IP address field -->
+        <EditText
+            android:id="@+id/editIpAddress"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_ip_field"
+            android:text="192.168.1.100"
+            android:textSize="11sp"
+            android:textColor="#E5E5EC"
+            android:textColorHint="#777785"
+            android:fontFamily="monospace"
+            android:inputType="text"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnConnect"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Connect / Disconnect button (Xbox Standard Green #107C10) -->
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="78dp"
+            android:layout_height="32dp"
+            android:background="@drawable/btn_connect_xbox"
+            android:backgroundTint="#107C10"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="Connect"
+            android:textAllCaps="false"
+            android:textSize="10.5sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:layout_constraintStart_toEndOf="@id/editIpAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Profile toggle -->
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:background="@drawable/btn_profile_pill"
+            app:backgroundTint="@null"
+            android:text="⚙ Type A"
+            android:textAllCaps="false"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:textColor="#B8B8C4"
+            android:minHeight="0dp"
+            android:minWidth="72dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editIpAddress" />
+
+        <!-- Combo info label -->
+        <TextView
+            android:id="@+id/tvComboInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Grab: LB+B  •  Vanish: LB+A"
+            android:textColor="#828290"
+            android:textSize="8.5sp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnProfile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ════════════════════ LEFT SIDE — ASYMMETRIC TOP THUMBSTICK + BOTTOM CONTINUOUS D-PAD ════════════════════ -->
+
+    <!-- Left Thumbstick (Top-Left Xbox Series X position, cleanly below triggerLT) -->
+    <com.xenoversepad.controller.JoystickView
+        android:id="@+id/joystickLeft"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gLeftEnd"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintTop_toBottomOf="@id/triggerLT"
+        app:layout_constraintBottom_toTopOf="@id/dpadContainer"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Continuous Metallic Faceted D-Pad Cross (Lower-Inner-Left) -->
+    <FrameLayout
+        android:id="@+id/dpadContainer"
+        android:layout_width="124dp"
+        android:layout_height="124dp"
+        android:background="@drawable/bg_dpad_cross"
+        android:splitMotionEvents="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gLeftEnd"
+        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintTop_toBottomOf="@id/joystickLeft"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/btnDpadUp"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/btn_dpad_arm"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="▲"
+            android:textSize="13sp"
+            android:textColor="#D0D0DC"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btnDpadDown"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/btn_dpad_arm"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="▼"
+            android:textSize="13sp"
+            android:textColor="#D0D0DC"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btnDpadLeft"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/btn_dpad_arm"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="◄"
+            android:textSize="13sp"
+            android:textColor="#D0D0DC"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btnDpadRight"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/btn_dpad_arm"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="►"
+            android:textSize="13sp"
+            android:textColor="#D0D0DC"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+    </FrameLayout>
+
+    <!-- ════════════════════ RIGHT SIDE — 3D XBOX FACE BUTTONS + LOWER-RIGHT THUMBSTICK ════════════════════ -->
+    <!-- ABXY diamond is shifted inward-left and pushed down 24dp below the top bar so Y is well clear of RT/RB,
+         and padding="0dp" guarantees the bold A, B, X, Y letters are always visible! -->
+
+    <FrameLayout
+        android:id="@+id/faceButtonContainer"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:splitMotionEvents="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@id/gRightStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/gTopBar">
+
+        <!-- Y (top) — Xbox Yellow (#FFB900) with bold black 'Y' -->
+        <Button
+            android:id="@+id/btnY"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal|top"
+            android:background="@drawable/btn_face_y"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:text="Y"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="#111111"
+            android:textStyle="bold"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <!-- A (bottom) — Xbox Green (#107C10) with bold white 'A' -->
+        <Button
+            android:id="@+id/btnA"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@drawable/btn_face_a"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:text="A"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <!-- X (left) — Xbox Blue (#0078D7) with bold white 'X' -->
+        <Button
+            android:id="@+id/btnX"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/btn_face_x"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:text="X"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <!-- B (right) — Xbox Red (#E81123) with bold white 'B' -->
+        <Button
+            android:id="@+id/btnB"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/btn_face_b"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:text="B"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+    </FrameLayout>
+
+    <!-- Right Thumbstick (Pushed into the far bottom-right grip, horizontally offset from ABXY) -->
+    <com.xenoversepad.controller.JoystickView
+        android:id="@+id/joystickRight"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintStart_toStartOf="@id/gRightStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
