@@ -3,7 +3,7 @@
 
 just download the apk and the .exe file 
 
-make sure the usb debugging is on for the usb connecting for playing otherwise it work 
+make sure the usb debugging is on for the usb connecting for playing otherwise it won't work 
 
 without usb debugging on you can still play it using wifi. just connect the pc and phone to the same wifi network
 
